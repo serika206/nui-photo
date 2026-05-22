@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<article>
+<div class="upload-area">
+  <h1>ぬい証明写真メーカー</h1>
+  <p class="head">写真を1〜4枚選んでね。<br>
+    （横4×縦2のレイアウトに自動配置されます）</p>
+  <p class="caution">ぬい写真はアップロードされません。<br>
+    安心してお使いください。</p>
+  
+  <!-- multiple をつけて複数選択可能に。name属性（name="image[]"など）も不要です -->
+  <input type="file" id="photo-input" accept="image/*" multiple>
+</div>
+
+<div id="print-canvas">
+<!-- 印刷用の1500x1052pxキャンバス（前と共通） -->
+<p>NuiNui Photo</p>
+<div id="inner">
+  <div class="photo-slot"><img id="img-slot-0" src=""></div>
+  <div class="photo-slot"><img id="img-slot-1" src=""></div>
+  <div class="photo-slot"><img id="img-slot-2" src=""></div>
+  <div class="photo-slot"><img id="img-slot-3" src=""></div>
+  <div class="photo-slot"><img id="img-slot-4" src=""></div>
+  <div class="photo-slot"><img id="img-slot-5" src=""></div>
+  <div class="photo-slot"><img id="img-slot-6" src=""></div>
+  <div class="photo-slot"><img id="img-slot-7" src=""></div>
+  <!-- ※5〜8枚目のマスは固定デザインのダミー（白背景など）を配置 -->
+</div>
+</div>
+
+<!-- 【ポイント】type="button" にして、勝手にページがリロードするのを防ぎます -->
+<button type="button" id="download-btn">PNGとしてダウンロード</button>
+
+<div>
+  <p>ダウンロードした写真はローソンネットワークプリント(はがきサイズ/シール紙)で印刷できます。</p>
+</div>
+</article>
+<script src="js/common.js"></script>
+</body>
+</html>

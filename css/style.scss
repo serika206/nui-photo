@@ -1,0 +1,102 @@
+@charset "utf-8";
+html{
+    font-size: 62.5%;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: beige;
+}
+article{
+    width: 349px;
+    margin: 0 auto;
+}
+h1{
+    background-color: #C24641;
+    color: white;
+    margin: 0 auto;
+    padding: 5px;
+}
+p.head{
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 5px;
+}
+p.caution{
+    text-align: center;
+    color: #C24641;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+input[type="file"]{
+    margin-bottom: 20px;
+}
+#print-canvas {
+    width: 349px;
+    height: 236px;
+    margin-left: auto;
+    margin-right: auto;
+    p{
+        padding: 0;
+        margin: 0;
+        background-color:#D2691E;
+        text-align: center;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.3rem;
+    }
+    #inner{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 5px 15px;
+    background-color: white;
+    gap: 5px;
+
+    .photo-slot {
+        background-color: #f0f0f0; // 少し薄めのグレーに
+        aspect-ratio: 3/3.75;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative; // 位置固定用
+
+        &::before {
+            content: "Nui Photo";
+            font-size: 1.3rem;
+            color: #ccc;
+            position: absolute; // 画像の下に潜り込ませる
+            z-index: 1;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: relative;
+        z-index: 2; // 【重要】カメラマークより上に重ねて、写真で完全に隠す
+
+        // 【ポイント】srcが空っぽ、または画像がないimgは完全に非表示にする
+        &:not([src]), 
+        &[src=""] {
+            display: none;
+        }
+    }
+}
+}
+
+button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
