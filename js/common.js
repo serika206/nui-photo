@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- [A] ファイルが選択された時のプレビュー処理 ---
   document.getElementById('photo-input').addEventListener('change', (e) => {
+     // まず全スロットを空にする
+  document.querySelectorAll('.photo-slot img').forEach(img => {
+    img.src = '';
+  });
+
     const files = Array.from(e.target.files).filter(file => file.type.match('image.*')); // 画像だけを抽出
     
     if (files.length === 0) return; // 画像がなければ何もしない
@@ -79,5 +84,18 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled = false;
     });
   });
+
+
+document.getElementById('reset-btn').addEventListener('click', () => {
+
+  // img を空に
+  document.querySelectorAll('.photo-slot img').forEach(img => {
+    img.src = '';
+  });
+
+  // file input をリセット
+  document.getElementById('photo-input').value = '';
+
+});
 
 });
