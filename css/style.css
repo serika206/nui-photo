@@ -13,7 +13,7 @@ body {
 }
 
 article {
-  width: 336px;
+  width: 334px;
   margin: 0 auto;
 }
 
@@ -42,8 +42,8 @@ input[type=file] {
 }
 
 #print-canvas {
-  width: 336px;
-  height: 236px;
+  width: 334px;
+  height: 234px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 15px;
