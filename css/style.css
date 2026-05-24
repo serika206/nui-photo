@@ -1,4 +1,3 @@
-@charset "UTF-8";
 html {
   font-size: 62.5%;
 }
@@ -56,18 +55,18 @@ input[type=file] {
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 #print-canvas #inner {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  padding: 5px 15px;
+  padding: 15px;
   background-color: white;
-  gap: 5px;
+  gap: 20px 5px;
 }
 #print-canvas #inner .photo-slot {
   background-color: #f0f0f0;
-  aspect-ratio: 3/3.75;
+  aspect-ratio: 3/3;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -82,17 +81,13 @@ input[type=file] {
   z-index: 1;
 }
 #print-canvas #inner img {
-  /* 👇 html2canvasでも絶対に画質を劣化させない自力中央トリミング魔法のCSS */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* 枠のど真ん中に持ってくる */
-  min-width: 100%; /* 縦横どちらが来ても、必ず枠を覆い尽くす */
-  min-height: 100%;
-  width: auto; /* 比率を絶対に崩さない */
-  height: auto;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  position: relative;
   z-index: 2;
-  /* 👇 写真が選ばれていない（srcが空）のときは破損アイコンごと完全に消す */
 }
 #print-canvas #inner img:not([src]), #print-canvas #inner img[src=""] {
   display: none;

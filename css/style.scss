@@ -47,18 +47,18 @@ input[type="file"]{
         font-family: "Ubuntu", sans-serif;
         font-weight: 400;
         font-style: normal;
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
     #inner{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding: 5px 15px;
+    padding: 15px;
     background-color: white;
-    gap: 5px;
+    gap: 20px 5px;
 
     .photo-slot {
         background-color: #f0f0f0; // 少し薄めのグレーに
-        aspect-ratio: 3/3.75;
+        aspect-ratio: 3/3;
         overflow: hidden;
         display: flex;
         align-items: center;
@@ -75,19 +75,13 @@ input[type="file"]{
     }
 
     img {
-        /* 👇 html2canvasでも絶対に画質を劣化させない自力中央トリミング魔法のCSS */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* 枠のど真ん中に持ってくる */
-        min-width: 100%;                  /* 縦横どちらが来ても、必ず枠を覆い尽くす */
-        min-height: 100%;
-        width: auto;                      /* 比率を絶対に崩さない */
-        height: auto;
-        
-        z-index: 2;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: relative;
+        z-index: 2; // 【重要】カメラマークより上に重ねて、写真で完全に隠す
 
-        /* 👇 写真が選ばれていない（srcが空）のときは破損アイコンごと完全に消す */
+        // 【ポイント】srcが空っぽ、または画像がないimgは完全に非表示にする
         &:not([src]), 
         &[src=""] {
             display: none;

@@ -9,17 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>うちの子証明写真メーカー</title>
+    <title>うちのこシールメーカー</title>
 
 <meta property="og:url" content="https://serika206.github.io/nui-photo/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="うちの子証明写真メーカー">
-<meta property="og:description" content="うちの子ぐるみの写真を1〜8枚選ぶだけ！ローソンのシールプリント（はがきサイズ）で綺麗に印刷できる8マスの証明写真風画像を、ブラウザ内完結（サーバー送信なし）で爆速生成します。">
+<meta property="og:title" content="うちのこシールメーカー">
+<meta property="og:description" content="うちのこの写真を1〜4枚選ぶだけ！ローソンのシールプリント（はがきサイズ）で綺麗に印刷できる8マスの証明写真風画像を、ブラウザ内完結（サーバー送信なし）で爆速生成します。">
 <meta property="og:image" content="https://serika206.github.io/nui-photo/images/ogp.png">
-<meta property="og:site_name" content="うちの子証明写真メーカー">
+<meta property="og:site_name" content="うちのこシールメーカー">
 
-<meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="うちの子証明写真メーカー">
-<meta name="twitter:description" content="うちの子の写真を1〜8枚選ぶだけ！ローソンのシールプリント（はがきサイズ）で綺麗に印刷できる8マスの証明写真風画像を、ブラウザ内完結（サーバー送信なし）で爆速生成します。">
+<meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="ぬい証明写真メーカー">
+<meta name="twitter:description" content="うちのこの写真を1〜8枚選ぶだけ！ローソンのシールプリント（はがきサイズ）で綺麗に印刷できる8マスの証明写真風画像を、ブラウザ内完結（サーバー送信なし）で爆速生成します。">
 <meta name="twitter:image" content="https://serika206.github.io/nui-photo/images/ogp.png">
 <link rel="apple-touch-icon" href="https://serika206.github.io/nui-photo/images/apple-touch-icon.png">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -27,11 +27,11 @@
 <body>
 <article>
 <div class="upload-area">
-  <h1>うちの子証明写真メーカー</h1>
+  <h1>ぬい証明写真メーカー</h1>
   <p class="head">写真を1〜8枚選んでね。<br>
     （横4×縦2のレイアウトに自動配置されます）</p>
-  <p class="caution">うちの子写真はアップロードされません。<br>
-    安心してお使いください。</p>
+  <p class="caution">※縦向き・正方形の写真推奨です。横向きの写真の場合印刷時写真の上下にグレーの枠が出てしまいます。</p>
+
   
   <!-- multiple をつけて複数選択可能に。name属性（name="image[]"など）も不要です -->
   <input type="file" id="photo-input" accept="image/*" multiple>
@@ -39,16 +39,17 @@
 
 <div id="print-canvas">
 <!-- 印刷用の1500x1052pxキャンバス（前と共通） -->
- <p>Nui ID Photo</p>
+ <p>Uchinoko ID Photo</p>
 <div id="inner">
-  <div class="photo-slot"><img id="img-slot-0" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
-<div class="photo-slot"><img id="img-slot-1" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
-<div class="photo-slot"><img id="img-slot-2" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
-<div class="photo-slot"><img id="img-slot-3" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
-<div class="photo-slot"><img id="img-slot-4" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
-<div class="photo-slot"><img id="img-slot-5" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
-<div class="photo-slot"><img id="img-slot-6" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
-<div class="photo-slot"><img id="img-slot-7" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div>
+  <div class="photo-slot"><img id="img-slot-0" src=""></div>
+  <div class="photo-slot"><img id="img-slot-1" src=""></div>
+  <div class="photo-slot"><img id="img-slot-2" src=""></div>
+  <div class="photo-slot"><img id="img-slot-3" src=""></div>
+  <div class="photo-slot"><img id="img-slot-4" src=""></div>
+  <div class="photo-slot"><img id="img-slot-5" src=""></div>
+  <div class="photo-slot"><img id="img-slot-6" src=""></div>
+  <div class="photo-slot"><img id="img-slot-7" src=""></div>
+  <!-- ※5〜8枚目のマスは固定デザインのダミー（白背景など）を配置 -->
 </div>
 </div>
 
