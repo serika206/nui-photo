@@ -5,15 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('photo-input').addEventListener('change', (e) => {
      // まず全スロットを空にする
   document.querySelectorAll('.photo-slot img').forEach(img => {
-    img.src = '';
+    img.style.backgroundImage = '';
   });
 
     const files = Array.from(e.target.files).filter(file => file.type.match('image.*')); // 画像だけを抽出
     
     if (files.length === 0) return; // 画像がなければ何もしない
 
-  if (files.length > 4) {
-    alert('写真は一度に4枚までしか選べないよ！自動的に最初の4枚を配置するね。');
+  if (files.length > 8) {
+    alert('写真は一度に8枚までしか選べないよ！自動的に最初の8枚を配置するね。');
     // もし選択自体を完全にキャンセル（リセット）させたい場合は、以下の2行を有効にしてください
     // e.target.value = ''; // 選択されたファイルをクリア
     // return;
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 常に4回ループを回す
     for (let i = 0; i < 8; i++) {
-      const file = files[i % Math.min(files.length, 4)];
+      const file = files[i % Math.min(files.length, 8)];
 
       const reader = new FileReader();
       
@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
         reader.onload = (event) => {
           const targetImg = document.getElementById(`img-slot-${slotIndex}`);
           if (targetImg) {
-            targetImg.src = event.target.result;
+            targetImg.style.backgroundImage = `url(${event.target.result})`;
+            targetImg.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
           }
         };
       })(i); // 現在のループの i を slotIndex として渡す
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // まだ画像が1枚も選択されていない場合は一応ブロック
     const firstImg = document.getElementById('img-slot-0');
-    if (!firstImg || !firstImg.src) {
+    if (!firstImg || !firstImg.style.backgroundImage) {
       alert('写真を最低1枚は選択してください！');
       return;
     }
@@ -90,7 +91,8 @@ document.getElementById('reset-btn').addEventListener('click', () => {
 
   // img を空に
   document.querySelectorAll('.photo-slot img').forEach(img => {
-    img.src = '';
+    img.style.backgroundImage = '';
+    img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
   });
 
   // file input をリセット

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-size: 62.5%;
 }
@@ -83,14 +84,17 @@ input[type=file] {
 #print-canvas #inner img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
   -o-object-position: center;
      object-position: center;
   position: relative;
   z-index: 2;
+  /* ここから背景画像用の最強プロパティに変身 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* JSで流し込んだスタイル(background-image)が空、または無い時は非表示にする */
 }
-#print-canvas #inner img:not([src]), #print-canvas #inner img[src=""] {
+#print-canvas #inner img:not([style*=background-image]), #print-canvas #inner img[style*="background-image: none"] {
   display: none;
 }
 
