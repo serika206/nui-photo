@@ -82,19 +82,19 @@ input[type=file] {
   z-index: 1;
 }
 #print-canvas #inner img {
-  width: 100%;
-  height: 100%;
-  -o-object-position: center;
-     object-position: center;
-  position: relative;
+  /* 👇 html2canvasでも絶対に画質を劣化させない自力中央トリミング魔法のCSS */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 枠のど真ん中に持ってくる */
+  min-width: 100%; /* 縦横どちらが来ても、必ず枠を覆い尽くす */
+  min-height: 100%;
+  width: auto; /* 比率を絶対に崩さない */
+  height: auto;
   z-index: 2;
-  /* ここから背景画像用の最強プロパティに変身 */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* JSで流し込んだスタイル(background-image)が空、または無い時は非表示にする */
+  /* 👇 写真が選ばれていない（srcが空）のときは破損アイコンごと完全に消す */
 }
-#print-canvas #inner img:not([style*=background-image]), #print-canvas #inner img[style*="background-image: none"] {
+#print-canvas #inner img:not([src]), #print-canvas #inner img[src=""] {
   display: none;
 }
 
