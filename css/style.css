@@ -12,9 +12,8 @@ body {
   background-color: beige;
 }
 
-.blue i {
+.blue i, .blue .div4 {
   color: #7ed3f2;
-  margin: 0 3px;
 }
 .blue #print-canvas {
   background-color: #7ed3f2;
@@ -23,9 +22,8 @@ body {
   background-color: #d7f1fe;
 }
 
-.pink i {
+.pink i, .pink .div4 {
   color: #f27eb6;
-  margin: 0 3px;
 }
 .pink #print-canvas {
   background-color: #f27eb6;
@@ -34,9 +32,8 @@ body {
   background-color: #fed7eb;
 }
 
-.purple i {
+.purple i, .purple .div4 {
   color: #a37ef2;
-  margin: 0 3px;
 }
 .purple #print-canvas {
   background-color: #a37ef2;
@@ -45,9 +42,8 @@ body {
   background-color: #ebd7fe;
 }
 
-.green i {
+.green i, .green .div4 {
   color: #7ef2a1;
-  margin: 0 3px;
 }
 .green #print-canvas {
   background-color: #7ef2a1;
@@ -56,9 +52,8 @@ body {
   background-color: #d7fedf;
 }
 
-.yellow i {
+.yellow i, .yellow .div4 {
   color: #f2d37e;
-  margin: 0 3px;
 }
 .yellow #print-canvas {
   background-color: #f2d37e;
@@ -70,6 +65,10 @@ body {
 article {
   width: 334px;
   margin: 0 auto;
+}
+
+i {
+  margin: 0 3px;
 }
 
 .color_btn {
@@ -166,6 +165,7 @@ input[type=file] {
   font-size: 0.7rem;
   text-align: center;
   line-height: 1;
+  font-family: "DynaPuff", system-ui;
 }
 #print-canvas #inner .div5 {
   grid-area: 1/4/3/5;
