@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // html2canvasでHTML要素を擬似的にキャプチャ
     html2canvas(target, {
-      scale: 2,       // 300→1500x1052pxの実寸サイズでそのまま出力
+      scale: 5,       // 300→1500x1052pxの実寸サイズでそのまま出力
       useCORS: true,  // ローカル環境や外部画像でのクロスドメインエラー対策
       logging: false  // コンソールのログを非表示にしてスッキリさせる
     }).then(canvas => {
