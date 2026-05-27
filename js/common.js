@@ -12,16 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (files.length === 0) return; // 画像がなければ何もしない
 
-  if (files.length > 8) {
-    alert('写真は一度に8枚までしか選べないよ！自動的に最初の4枚を配置するね。');
+  if (files.length > 9) {
+    alert('写真は一度に9枚までしか選べないよ！自動的に最初の9枚を配置するね。');
     // もし選択自体を完全にキャンセル（リセット）させたい場合は、以下の2行を有効にしてください
     // e.target.value = ''; // 選択されたファイルをクリア
     // return;
   }
 
     // 常に4回ループを回す
-    for (let i = 0; i < 8; i++) {
-      const file = files[i % Math.min(files.length, 8)];
+    for (let i = 0; i < 9; i++) {
+      const file = files[i % Math.min(files.length, 9)];
 
       const reader = new FileReader();
       

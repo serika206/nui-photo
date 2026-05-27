@@ -12,9 +12,86 @@ body {
   background-color: beige;
 }
 
+.blue i {
+  color: #7ed3f2;
+  margin: 0 3px;
+}
+.blue #print-canvas {
+  background-color: #7ed3f2;
+}
+.blue #inner {
+  background-color: #d7f1fe;
+}
+
+.pink i {
+  color: #f27eb6;
+  margin: 0 3px;
+}
+.pink #print-canvas {
+  background-color: #f27eb6;
+}
+.pink #inner {
+  background-color: #fed7eb;
+}
+
+.purple i {
+  color: #a37ef2;
+  margin: 0 3px;
+}
+.purple #print-canvas {
+  background-color: #a37ef2;
+}
+.purple #inner {
+  background-color: #ebd7fe;
+}
+
+.green i {
+  color: #7ef2a1;
+  margin: 0 3px;
+}
+.green #print-canvas {
+  background-color: #7ef2a1;
+}
+.green #inner {
+  background-color: #d7fedf;
+}
+
+.yellow i {
+  color: #f2d37e;
+  margin: 0 3px;
+}
+.yellow #print-canvas {
+  background-color: #f2d37e;
+}
+.yellow #inner {
+  background-color: #fef1d7;
+}
+
 article {
   width: 334px;
   margin: 0 auto;
+}
+
+.color_btn {
+  margin-bottom: 20px;
+}
+.color_btn p {
+  text-align: center;
+  padding: 0;
+  margin: 0 0 5px 0;
+}
+.color_btn div {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+.color_btn div a {
+  display: block;
+  text-decoration: none;
+  background-color: #ccc;
+  color: black;
+  padding: 5px;
+  text-align: center;
 }
 
 h1 {
@@ -46,50 +123,91 @@ input[type=file] {
   height: 234px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23ffffff'/%3E%3Ccircle cx='30' cy='30' r='4' fill='%23ffffff'/%3E%3C/svg%3E");
+}
+#print-canvas .box {
+  width: 90%;
 }
 #print-canvas p {
-  padding: 0;
-  margin: 0;
   text-align: center;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 0.8rem;
+  margin: 0;
+}
+#print-canvas p img {
+  width: 50%;
 }
 #print-canvas #inner {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 15px;
-  background-color: white;
-  gap: 20px 5px;
+  grid-template-columns: repeat(2, 1fr) 2fr repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 10px;
+  padding: 20px 10px;
 }
-#print-canvas #inner .photo-slot {
-  background-color: #f0f0f0;
-  aspect-ratio: 3/3;
+#print-canvas #inner .div0 {
+  grid-area: 1/1/3/2;
+}
+#print-canvas #inner .div1 {
+  grid-area: 3/1/5/2;
+}
+#print-canvas #inner .div2 {
+  grid-area: 1/2/3/3;
+}
+#print-canvas #inner .div3 {
+  grid-area: 3/2/5/3;
+}
+#print-canvas #inner .div4 {
+  grid-area: 1/3/5/4;
+  padding: 5px 10px;
+  background-color: #ffffff;
+  font-size: 0.7rem;
+  text-align: center;
+  line-height: 1;
+}
+#print-canvas #inner .div5 {
+  grid-area: 1/4/3/5;
+}
+#print-canvas #inner .div6 {
+  grid-area: 3/4/5/5;
+}
+#print-canvas #inner .div7 {
+  grid-area: 1/5/3/6;
+}
+#print-canvas #inner .div8 {
+  grid-area: 3/5/5/6;
+}
+#print-canvas .photo-slot {
+  background-color: white;
+  aspect-ratio: 3/3.85;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.4);
 }
-#print-canvas #inner .photo-slot::before {
-  content: "Nui Photo";
-  font-size: 1.3rem;
+#print-canvas .photo-slot::before {
+  content: "Uchinoko";
+  font-size: 0.7rem;
   color: #ccc;
   position: absolute;
   z-index: 1;
 }
-#print-canvas #inner img {
+#print-canvas .div4 .photo-slot {
+  aspect-ratio: 3/4;
+  margin-bottom: 5px;
+}
+#print-canvas img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
   -o-object-position: center;
      object-position: center;
   position: relative;
   z-index: 2;
 }
-#print-canvas #inner img:not([src]), #print-canvas #inner img[src=""] {
+#print-canvas img:not([src]), #print-canvas img[src=""] {
   display: none;
 }
 
