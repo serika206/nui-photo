@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 案内テキスト
       const guideText = document.createElement('p');
-      guideText.innerHTML = '画像が完成したよ！<br><b>画像を長押しして保存</b>してね！';
+      guideText.innerHTML = '✨ 画像が完成したよ！ ✨<br><b>画像を長押しして保存</b>してね！';
       Object.assign(guideText.style, {
         color: '#fff', fontSize: '16px', textAlign: 'center',
         marginBottom: '15px', lineHeight: '1.5', fontFamily: 'sans-serif'
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resultImg.src = imgData;
       Object.assign(resultImg.style, {
         maxWidth: '100%', maxHeight: '70%',
-        boxShadow: '0 4px 15px rgba(0,0,0,0.5)'
+        borderRadius: '8px', boxShadow: '0 4px 15px rgba(0,0,0,0.5)'
       });
 
       // 閉じるボタン
