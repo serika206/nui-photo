@@ -1,43 +1,41 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- [A] ファイルが選択された時のプレビュー処理 ---
-  document.getElementById('photo-input').addEventListener('change', async (e) => {
-    // まず全スロットを空にする
-    document.querySelectorAll('.photo-slot img').forEach(img => {
-      img.src = '';
-    });
+// --- [A] ファイルが選択された時のプレビュー処理 ---
+  document.getElementById('photo-input').addEventListener('change', (e) => {
+     // まず全スロットを空にする
+  document.querySelectorAll('.photo-slot img').forEach(img => {
+    img.src = '';
+  });
 
     const files = Array.from(e.target.files).filter(file => file.type.match('image.*')); // 画像だけを抽出
     
     if (files.length === 0) return; // 画像がなければ何もしない
 
-    if (files.length > 4) {
-      alert('写真は一度に4枚までしか選べないよ！自動的に最初の4枚を配置するね。');
-    }
+  if (files.length > 4) {
+    alert('写真は一度に4枚までしか選べないよ！自動的に最初の4枚を配置するね。');
+    // もし選択自体を完全にキャンセル（リセット）させたい場合は、以下の2行を有効にしてください
+    // e.target.value = ''; // 選択されたファイルをクリア
+    // return;
+  }
 
-    // 有効な画像枚数（最大4枚）
-    const maxFiles = Math.min(files.length, 4);
-
-    // 【ステップ1】 選択された画像（最大4枚）をあらかじめBase64データ（Data URL）に変換する
-    // ※FileReaderの生成を選択された枚数分（1〜4回）だけに抑えてメモリを節約
-    const base64Images = [];
-    for (let i = 0; i < maxFiles; i++) {
-      const dataUrl = await new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.onload = (event) => resolve(event.target.result);
-        reader.readAsDataURL(files[i]);
-      });
-      base64Images.push(dataUrl);
-    }
-
-    // 【ステップ2】 変換済みのBase64配列を使って、9つのスロットに順番に配置する
-    // ※即時関数（IIFE）によるクロージャが不要になり、完全にバグの起きないシンプルなループに
+    // 常に4回ループを回す
     for (let i = 0; i < 9; i++) {
-      const targetImg = document.getElementById(`img-slot-${i}`);
-      if (targetImg) {
-        // 計算通りのインデックス（画像Aがslot-0, 1, 5に入る黄金比率）でsrcを割り当て
-        targetImg.src = base64Images[i % base64Images.length];
-      }
+      const file = files[i % Math.min(files.length, 4)];
+
+      const reader = new FileReader();
+      
+      // 非同期のタイミングでスロット番号がズレないよう、関数に閉じ込めて現在の「i」を固定する
+      ((slotIndex) => {
+        reader.onload = (event) => {
+          const targetImg = document.getElementById(`img-slot-${slotIndex}`);
+          if (targetImg) {
+            targetImg.src = event.target.result;
+          }
+        };
+      })(i); // 現在のループの i を slotIndex として渡す
+      
+      reader.readAsDataURL(file);
     }
   });
 
@@ -60,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // html2canvasでHTML要素を擬似的にキャプチャ
     html2canvas(target, {
-      scale: 3,       
+      scale: 3,       // 
       useCORS: true,  // ローカル環境や外部画像でのクロスドメインエラー対策
       logging: false  // コンソールのログを非表示にしてスッキリさせる
     }).then(canvas => {
@@ -87,15 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- [C] リセットボタンの処理 ---
-  document.getElementById('reset-btn').addEventListener('click', () => {
-    // img を空に
-    document.querySelectorAll('.photo-slot img').forEach(img => {
-      img.src = '';
-    });
 
-    // file input をリセット
-    document.getElementById('photo-input').value = '';
+document.getElementById('reset-btn').addEventListener('click', () => {
+
+  // img を空に
+  document.querySelectorAll('.photo-slot img').forEach(img => {
+    img.src = '';
   });
+
+  // file input をリセット
+  document.getElementById('photo-input').value = '';
+
+});
 
 });

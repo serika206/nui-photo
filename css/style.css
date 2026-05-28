@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-size: 62.5%;
 }
@@ -12,51 +13,71 @@ body {
   background-color: beige;
 }
 
-.blue i, .blue .div4 {
+.blue i,
+.blue .div4 {
   color: #7ed3f2;
 }
 .blue #print-canvas {
   background-color: #7ed3f2;
 }
+.blue #print-canvas p {
+  color: #7ed3f2;
+}
 .blue #inner {
   background-color: #d7f1fe;
 }
 
-.pink i, .pink .div4 {
+.pink i,
+.pink .div4 {
   color: #f27eb6;
 }
 .pink #print-canvas {
   background-color: #f27eb6;
 }
+.pink #print-canvas p {
+  color: #f27eb6;
+}
 .pink #inner {
   background-color: #fed7eb;
 }
 
-.purple i, .purple .div4 {
+.purple i,
+.purple .div4 {
   color: #a37ef2;
 }
 .purple #print-canvas {
   background-color: #a37ef2;
 }
+.purple #print-canvas p {
+  color: #a37ef2;
+}
 .purple #inner {
   background-color: #ebd7fe;
 }
 
-.green i, .green .div4 {
+.green i,
+.green .div4 {
   color: #7ef2a1;
 }
 .green #print-canvas {
   background-color: #7ef2a1;
 }
+.green #print-canvas p {
+  color: #7ef2a1;
+}
 .green #inner {
   background-color: #d7fedf;
 }
 
-.yellow i, .yellow .div4 {
+.yellow i,
+.yellow .div4 {
   color: #f2d37e;
 }
 .yellow #print-canvas {
   background-color: #f2d37e;
+}
+.yellow #print-canvas p {
+  color: #f2d37e;
 }
 .yellow #inner {
   background-color: #fef1d7;
@@ -126,17 +147,21 @@ input[type=file] {
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23ffffff'/%3E%3Ccircle cx='30' cy='30' r='4' fill='%23ffffff'/%3E%3C/svg%3E"); */
+  background-image: url(../images/bcg.png);
 }
 #print-canvas .box {
   width: 90%;
 }
 #print-canvas p {
   text-align: center;
-  margin: 0;
-}
-#print-canvas p img {
-  width: 50%;
+  margin: 5px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: "TsukuARundGothic-Regular", "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "Noto Sans JP", sans-serif;
+  /* 最終生命線: ゴシック体 */
+  background-color: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
 }
 #print-canvas #inner {
   display: grid;
@@ -165,7 +190,8 @@ input[type=file] {
   font-size: 0.7rem;
   text-align: center;
   line-height: 1;
-  /* font-family: "DynaPuff", system-ui; */
+  font-family: "TsukuARundGothic-Regular", "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "Noto Sans JP", sans-serif;
+  /* 最終生命線: ゴシック体 */
 }
 #print-canvas #inner .div5 {
   grid-area: 1/4/3/5;

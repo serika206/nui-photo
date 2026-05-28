@@ -1,85 +1,90 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 
-    <title>うちのこ写真メーカー</title>
+  <title>うちのこ写真メーカー</title>
 
-<meta property="og:url" content="https://serika206.github.io/nui-photo/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="うちのこ写真メーカー">
-<meta property="og:description" content="うちのこの写真を選ぶだけ！ローソンのシールプリントで綺麗に印刷できるプリクラ風画像を、ブラウザ内完結（サーバー送信なし）で爆速生成します。">
-<meta property="og:image" content="https://serika206.github.io/nui-photo/images/ogp.png">
-<meta property="og:site_name" content="うちのこ写真メーカー">
+  <meta property="og:url" content="https://serika206.github.io/nui-photo/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="うちのこ写真メーカー">
+  <meta property="og:description" content="うちのこの写真を選ぶだけ！ローソンのシールプリントで綺麗に印刷できるプリクラ風画像を、ブラウザ内完結（サーバー送信なし）で爆速生成します。">
+  <meta property="og:image" content="https://serika206.github.io/nui-photo/images/ogp.png">
+  <meta property="og:site_name" content="うちのこ写真メーカー">
 
-<meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="うちのこ写真メーカー">
-<meta name="twitter:description" content="うちのこの写真を選ぶだけ！ローソンのシールプリントで綺麗に印刷できるプリクラ風画像を、ブラウザ内完結（サーバー送信なし）で爆速生成します。">
-<meta name="twitter:image" content="https://serika206.github.io/nui-photo/images/ogp.png">
-<link rel="apple-touch-icon" href="https://serika206.github.io/nui-photo/images/apple-touch-icon.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="うちのこ写真メーカー">
+  <meta name="twitter:description" content="うちのこの写真を選ぶだけ！ローソンのシールプリントで綺麗に印刷できるプリクラ風画像を、ブラウザ内完結（サーバー送信なし）で爆速生成します。">
+  <meta name="twitter:image" content="https://serika206.github.io/nui-photo/images/ogp.png">
+  <link rel="apple-touch-icon" href="https://serika206.github.io/nui-photo/images/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body class="blue">
-<article>
-<div class="upload-area">
-  <h1>うちのこ写真メーカー</h1>
-  <p class="head">写真を1〜9枚選んでね。<br>
-    （1枚目に選んだものが中央、以下自動配置されます）</p>
-  <p class="caution">写真はアップロードされません。<br>
-    安心してお使いください。</p>
-  
-  <div class="color_btn">
-    <p>テーマの変更</p>
-    <div>
-    <a href="#" data-theme="blue">ブルー</a>
-    <a href="#" data-theme="pink">ピンク</a>
-    <a href="#" data-theme="yellow">イエロー</a>
-    <a href="#" data-theme="purple">パープル</a>
-    <a href="#" data-theme="green">グリーン</a>
+  <article>
+    <div class="upload-area">
+      <h1>うちのこ写真メーカー</h1>
+      <p class="head">写真を1〜4枚選んでね。<br>
+        （1枚目に選んだものが中央、以下自動配置されます）</p>
+      <p class="caution">写真はアップロードされません。<br>
+        安心してお使いください。</p>
+
+      <div class="color_btn">
+        <p>テーマの変更</p>
+        <div>
+          <a href="#" data-theme="blue">ブルー</a>
+          <a href="#" data-theme="pink">ピンク</a>
+          <a href="#" data-theme="yellow">イエロー</a>
+          <a href="#" data-theme="purple">パープル</a>
+          <a href="#" data-theme="green">グリーン</a>
+        </div>
+      </div>
+
+      <!-- multiple をつけて複数選択可能に。name属性（name="image[]"など）も不要です -->
+      <input type="file" id="photo-input" accept="image/*" multiple>
     </div>
-  </div>
-  
-  <!-- multiple をつけて複数選択可能に。name属性（name="image[]"など）も不要です -->
-  <input type="file" id="photo-input" accept="image/*" multiple>
-</div>
 
-<div id="print-canvas">
-<!-- 印刷用の1500x1052pxキャンバス（前と共通） -->
-<div class="box">
-<p class="rogo"><img src="images/logo.png" alt="Uchinoko photo seal"></p>
-<div id="inner">
-  <div class="photo-slot div0"><img id="img-slot-4" src=""></div>
-  <div class="photo-slot div1"><img id="img-slot-1" src=""></div>
-  <div class="photo-slot div2"><img id="img-slot-2" src=""></div>
-  <div class="photo-slot div3"><img id="img-slot-3" src=""></div>
-  <div class="div4"><div class="photo-slot"><img id="img-slot-0" src=""></div>Uchinoko<br><i class="fa-solid fa-heart"></i>Kawaii<i class="fa-solid fa-heart"></i></div>
-  <div class="photo-slot div5"><img id="img-slot-5" src=""></div>
-  <div class="photo-slot div6"><img id="img-slot-6" src=""></div>
-  <div class="photo-slot div7"><img id="img-slot-7" src=""></div>
-  <div class="photo-slot div8"><img id="img-slot-8" src=""></div>
-  <!-- ※5〜8枚目のマスは固定デザインのダミー（白背景など）を配置 -->
-</div>
-</div>
-</div>
+    <div id="print-canvas">
+      <!-- 印刷用の1500x1052pxキャンバス（前と共通） -->
+      <div class="box">
+        <p class="rogo">Uchinoko Photo Seal</p>
+        <div id="inner">
+          <div class="photo-slot div0"><img id="img-slot-4" src=""></div>
+          <div class="photo-slot div1"><img id="img-slot-1" src=""></div>
+          <div class="photo-slot div2"><img id="img-slot-2" src=""></div>
+          <div class="photo-slot div3"><img id="img-slot-3" src=""></div>
+          <div class="div4">
+            <div class="photo-slot"><img id="img-slot-0" src=""></div>Uchinoko<br><i
+              class="fa-solid fa-heart"></i>Kawaii<i class="fa-solid fa-heart"></i>
+          </div>
+          <div class="photo-slot div5"><img id="img-slot-8" src=""></div>
+          <div class="photo-slot div6"><img id="img-slot-5" src=""></div>
+          <div class="photo-slot div7"><img id="img-slot-6" src=""></div>
+          <div class="photo-slot div8"><img id="img-slot-7" src=""></div>
+          <!-- ※5〜8枚目のマスは固定デザインのダミー（白背景など）を配置 -->
+        </div>
+      </div>
+    </div>
 
-<!-- 【ポイント】type="button" にして、勝手にページがリロードするのを防ぎます -->
-<button type="button" id="download-btn">PNGとしてダウンロード</button>
+    <!-- 【ポイント】type="button" にして、勝手にページがリロードするのを防ぎます -->
+    <button type="button" id="download-btn">PNGとしてダウンロード</button>
 
-<button type="button" id="reset-btn">
-  選びなおす
-</button>
+    <button type="button" id="reset-btn">
+      選びなおす
+    </button>
 
-<div>
-  <p>ダウンロードした写真はローソンネットワークプリント(L版/シール紙)で印刷できます。</p>
-  <p>シール紙への印刷方法は<a href="https://www.lawson.co.jp/lab/tsuushin/art/1443714_4659.html" target="_blank">公式サイト</a>を確認してください。</p>
-</div>
-</article>
-<script src="js/common.js"></script>
-<script src="js/color.js"></script>
+    <div>
+      <p>ダウンロードした写真はローソンネットワークプリント(L版/シール紙)で印刷できます。</p>
+      <p>シール紙への印刷方法は<a href="https://www.lawson.co.jp/lab/tsuushin/art/1443714_4659.html"
+          target="_blank">公式サイト</a>を確認してください。</p>
+    </div>
+  </article>
+  <script src="js/common.js"></script>
+  <script src="js/color.js"></script>
 </body>
+
 </html>

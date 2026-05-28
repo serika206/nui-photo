@@ -1,93 +1,138 @@
 @charset "utf-8";
-html{
+
+html {
     font-size: 62.5%;
 }
+
 * {
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
     padding: 0;
     background-color: beige;
 }
-.blue{
-    i,.div4{
+
+.blue {
+
+    i,
+    .div4 {
         color: #7ed3f2;
     }
+
     #print-canvas {
         background-color: #7ed3f2;
+        p{
+            color: #7ed3f2;
+        }
     }
-    #inner{
+
+    #inner {
         background-color: #d7f1fe;
     }
 }
 
-.pink{
-    i,.div4{
+.pink {
+
+    i,
+    .div4 {
         color: #f27eb6;
     }
+
     #print-canvas {
         background-color: #f27eb6;
+        p{
+            color: #f27eb6;
+        }
     }
-    #inner{
+
+    #inner {
         background-color: #fed7eb;
     }
 }
 
-.purple{
-    i,.div4{
+.purple {
+
+    i,
+    .div4 {
         color: #a37ef2;
     }
+
     #print-canvas {
         background-color: #a37ef2;
+        p{
+            color: #a37ef2;
+        }
     }
-    #inner{
+
+    #inner {
         background-color: #ebd7fe;
     }
 }
 
-.green{
-    i,.div4{
+.green {
+
+    i,
+    .div4 {
         color: #7ef2a1;
     }
+
     #print-canvas {
         background-color: #7ef2a1;
+        p{
+            color: #7ef2a1;
+        }
     }
-    #inner{
+
+    #inner {
         background-color: #d7fedf;
     }
 }
 
-.yellow{
-    i,.div4{
+.yellow {
+
+    i,
+    .div4 {
         color: #f2d37e;
     }
+
     #print-canvas {
         background-color: #f2d37e;
+        p{
+            color: #f2d37e;
+        }
     }
-    #inner{
+
+    #inner {
         background-color: #fef1d7;
     }
 }
-article{
+
+article {
     width: 334px;
     margin: 0 auto;
 }
-i{
+
+i {
     margin: 0 3px;
 }
-.color_btn{
+
+.color_btn {
     margin-bottom: 20px;
-    p{
+
+    p {
         text-align: center;
         padding: 0;
         margin: 0 0 5px 0;
     }
-    div{
+
+    div {
         display: grid;
-        grid-template-columns: repeat(5,1fr);
-        gap:10px;
-        a{
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+
+        a {
             display: block;
             text-decoration: none;
             background-color: #ccc;
@@ -97,26 +142,31 @@ i{
         }
     }
 }
-h1{
+
+h1 {
     background-color: #C24641;
     color: white;
     margin: 0 auto;
     padding: 5px;
 }
-p.head{
+
+p.head {
     font-size: 1.3rem;
     text-align: center;
     margin-bottom: 5px;
 }
-p.caution{
+
+p.caution {
     text-align: center;
     color: #C24641;
     font-size: 1rem;
     margin-bottom: 5px;
 }
-input[type="file"]{
+
+input[type="file"] {
     margin-bottom: 20px;
 }
+
 #print-canvas {
     width: 334px;
     height: 234px;
@@ -126,16 +176,32 @@ input[type="file"]{
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23ffffff'/%3E%3Ccircle cx='30' cy='30' r='4' fill='%23ffffff'/%3E%3C/svg%3E");    .box{
+    background-image: url(../images/bcg.png);
+    .box {
         width: 90%;
     }
-    p{
+
+    p {
         text-align: center;
-        margin: 0;
-        img{
-            width:50%;
-        }
+        margin: 5px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-family:
+            "TsukuARundGothic-Regular",
+            /* iOS: 筑紫A丸ゴシック */
+            "Hiragino Maru Gothic ProN",
+            /* Mac: ヒラギノ丸ゴ */
+            "HG丸ｺﾞｼｯｸM-PRO",
+            /* Windows: Office等で入る丸ゴ */
+            "Noto Sans JP",
+            /* Android等: 標準ゴシック */
+            sans-serif;
+        /* 最終生命線: ゴシック体 */
+        background-color: #ffffff;
+        padding: 5px;
+        border-radius: 5px;
     }
+
     #inner {
         display: grid;
         grid-template-columns: repeat(2, 1fr) 2fr repeat(2, 1fr);
@@ -143,22 +209,59 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         grid-column-gap: 5px;
         grid-row-gap: 10px;
         padding: 20px 10px;
-        .div0 { grid-area: 1 / 1 / 3 / 2; }
-        .div1 { grid-area: 3 / 1 / 5 / 2; }
-        .div2 { grid-area: 1 / 2 / 3 / 3; }
-        .div3 { grid-area: 3 / 2 / 5 / 3; }
-        .div4 { grid-area: 1 / 3 / 5 / 4;
-            padding:5px 10px;
+
+        .div0 {
+            grid-area: 1 / 1 / 3 / 2;
+        }
+
+        .div1 {
+            grid-area: 3 / 1 / 5 / 2;
+        }
+
+        .div2 {
+            grid-area: 1 / 2 / 3 / 3;
+        }
+
+        .div3 {
+            grid-area: 3 / 2 / 5 / 3;
+        }
+
+        .div4 {
+            grid-area: 1 / 3 / 5 / 4;
+            padding: 5px 10px;
             background-color: #ffffff;
             font-size: 0.7rem;
             text-align: center;
             line-height: 1;
-        font-family: "DynaPuff", system-ui;}
-        .div5 { grid-area: 1 / 4 / 3 / 5; }
-        .div6 { grid-area: 3 / 4 / 5 / 5; }
-        .div7 { grid-area: 1 / 5 / 3 / 6; }
-        .div8 { grid-area: 3 / 5 / 5 / 6; }
+            font-family:
+                "TsukuARundGothic-Regular",
+                /* iOS: 筑紫A丸ゴシック */
+                "Hiragino Maru Gothic ProN",
+                /* Mac: ヒラギノ丸ゴ */
+                "HG丸ｺﾞｼｯｸM-PRO",
+                /* Windows: Office等で入る丸ゴ */
+                "Noto Sans JP",
+                /* Android等: 標準ゴシック */
+                sans-serif;
+            /* 最終生命線: ゴシック体 */
         }
+
+        .div5 {
+            grid-area: 1 / 4 / 3 / 5;
+        }
+
+        .div6 {
+            grid-area: 3 / 4 / 5 / 5;
+        }
+
+        .div7 {
+            grid-area: 1 / 5 / 3 / 6;
+        }
+
+        .div8 {
+            grid-area: 3 / 5 / 5 / 6;
+        }
+    }
 
     .photo-slot {
         background-color: white;
@@ -169,6 +272,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         justify-content: center;
         position: relative; // 位置固定用
         box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.4);
+
         &::before {
             content: "Uchinoko";
             font-size: 0.7rem;
@@ -177,8 +281,9 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
             z-index: 1;
         }
     }
-    .div4{
-        .photo-slot{
+
+    .div4 {
+        .photo-slot {
             aspect-ratio: 3/4;
             margin-bottom: 5px;
         }
@@ -191,14 +296,14 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         z-index: 2; // 【重要】カメラマークより上に重ねて、写真で完全に隠す
 
         // 【ポイント】srcが空っぽ、または画像がないimgは完全に非表示にする
-        &:not([src]), 
+        &:not([src]),
         &[src=""] {
             display: none;
         }
     }
 }
 
-button{
+button {
     display: block;
     margin-left: auto;
     margin-right: auto;
